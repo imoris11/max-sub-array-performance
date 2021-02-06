@@ -1,6 +1,8 @@
 const fs = require('fs')
 const { performance } = require('perf_hooks');
 const { generateTestData } = require("./generateTestData");
+const { maxSubArrayLinear } = require("./linear");
+const { maxSubArrayQuadratic } = require("./quadratic");
 
 const getData = () => {
     try {
@@ -11,57 +13,6 @@ const getData = () => {
         console.error(err)
       }
 }
-
-
-  
-
-  const maxSubArrayQuadratic = (arr) => {
-    
-    if (arr.length === 0) return 0
-
-    let max = 0
-    let currentMax = 0
-
-    for(let i=0; i<arr.length; i++) {
-        for(let j=i; j<arr.length; j++) {
-            const num = Number(arr[j])
-            if (currentMax + num > num) {
-                currentMax += num
-            }else{
-                currentMax = num
-            }
-            if(max < currentMax) {
-                max = currentMax
-            }
-        }
-        currentMax = 0
-    }
-    console.log(max)
-    return max
-  }
-
-
-  const maxSubArrayLinear = (arr) => {
-      if (arr.length === 0) return 0
-
-      let max = 0
-      let currentMax = 0
-
-      for(let i=0; i<arr.length; i++) {
-          const num = Number(arr[i])
-          if (currentMax + num > num) {
-              currentMax += num
-          }else{
-              currentMax = num
-          }
-
-          if(max < currentMax) {
-              max = currentMax
-          }
-      }
-      console.log(max)
-      return max
-  }
 
   const printLogs = (max, min, size) => {
    
