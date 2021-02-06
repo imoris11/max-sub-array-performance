@@ -80,7 +80,7 @@ const getData = () => {
     console.log("Call to Quadratic runtime took " + (t1 - t0) + " milliseconds.")
      //create csv
      try {
-        const data = fs.writeFileSync('./result.csv', `${t4-t3}, ${t1-t0}, ${size}\n`, {flag: 'a+'})
+        const data = fs.writeFileSync('./result.csv', `${size}, ${t4-t3}, ${t1-t0}\n`, {flag: 'a+'})
         //file written successfully
       } catch (err) {
         console.error(err)
@@ -90,7 +90,7 @@ const getData = () => {
   const showLogs = () => {
     //create csv
     try {
-        const data = fs.writeFileSync('./result.csv', 'linear,quadratic,size\n')
+        const data = fs.writeFileSync('./result.csv', 'size, linear, quadratic\n')
         //file written successfully
       } catch (err) {
         console.error(err)
@@ -114,6 +114,15 @@ const getData = () => {
       printLogs(25000, -25000, 40000)
       printLogs(30000, -30000, 45000)
       printLogs(30000, -30000, 50000)
+      printLogs(35000, -35000, 55000)
+      printLogs(35000, -35000, 60000)
+      printLogs(40000, -40000, 65000)
+      printLogs(40000, -40000, 70000)
+      printLogs(45000, -45000, 75000)
+      printLogs(50000, -50000, 80000)
+      printLogs(50000, -50000, 85000)
+      printLogs(50000, -50000, 90000)
+      printLogs(100000, -100000, 95000)
       printLogs(100000, -100000, 100000)
   }
 
